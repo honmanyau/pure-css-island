@@ -15,9 +15,16 @@ body {
   overflow: hidden;
 }
 
-input, label, .info {
+input, label {
   position: relative;
   z-index: 1;
+}
+
+.info {
+  position: absolute;
+  z-index: 1;
+  left: 0px;
+  bottom: 10px;
 }
 
 label, .info {
