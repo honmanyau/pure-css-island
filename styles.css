@@ -10,20 +10,25 @@ body {
   font-family: sans-serif;
   font-weight: 300;
   font-size: 18px;
-  color: #333;
+  color: white;
   text-shadow: 1px 1px 2px #fffde4;
   overflow: hidden;
 }
 
 input, label, .info {
   position: relative;
-  margin-top: 10px;
   z-index: 1;
 }
 
-.info {
-  margin-left: 5px;
+label, .info {
+  display: inline-block;
+  padding: 4px;
+  margin: 4px 0 0 4px;
   font-size: 12px;
+  text-shadow: 0px 0px 2px black;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .container {
