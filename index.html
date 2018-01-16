@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>React App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <input type="radio" name="view" id="view-default" checked />
+    <label>Default View</label>
+
+    <input type="radio" name="view" id="view-90deg" />
+    <label>Rotate by 90°</label>
+
+    <input type="radio" name="view" id="view-180deg" />
+    <label>Rotate by 180°</label>
+
+    <input type="radio" name="view" id="view-270deg" />
+    <label>Rotate by 270°</label>
+
+    <input type="checkbox" name="view" id="toggle-animation" checked />
+    <label>Toggle Animation</label>
+
+    <div class="info">Tested with Chrome and Firefox. No support for IE. Please toggle animation off with the checkbox above if you see glitches (for example, Safari desktop and mobile).</div>
+
+    <!-- Disabled for performance reasons -->
+    <!-- <input type="checkbox" name="view" id="toggle-grid" />
+    <label>Display Grids</label> -->
+
+    <div class="container">
+      <div class="world-container">
+        <div class="plane grid cube-y-1"></div>
+        <div class="plane grid cube-y-2"></div>
+        <div class="plane grid cube-y-3">
+          <!-- Supporting columns -->
+          <div class="column-edge-1-y sup-column-light"></div>
+          <div class="column-edge-2-y sup-column-light"></div>
+          <div class="column-mid-1-y sup-column-light"></div>
+
+          <!-- Platforms -->
+          <div class="platform-6x6-y bronze"></div>
+        </div>
+        <div class="plane grid cube-y-4">
+          <!-- Supporting columns -->
+          <div class="column-edge-1-y sup-column-dark"></div>
+          <div class="column-edge-2-y sup-column-inside"></div>
+          <div class="column-mid-1-y sup-column-inside"></div>
+        </div>
+        <div class="plane grid cube-y-5">
+          <!-- Supporting columns -->
+          <div class="column-mid-2-y sup-column-inside"></div>
+          <div class="column-mid-4-y sup-column-darker"></div>
+        </div>
+        <div class="plane grid cube-y-6"></div>
+        <div class="plane grid cube-y-7">
+          <!-- Supporting columns -->
+          <div class="column-mid-2-y sup-column-inside"></div>
+          <div class="column-mid-4-y sup-column-dark"></div>
+        </div>
+        <div class="plane grid cube-y-8">
+          <!-- Supporting columns -->
+          <div class="column-edge-3-y sup-column-inside"></div>
+          <div class="column-edge-4-y sup-column-darker"></div>
+          <div class="column-mid-3-y sup-column-inside"></div>
+        </div>
+        <div class="plane grid cube-y-9">
+          <!-- Supporting columns -->
+          <div class="column-edge-3-y sup-column-dark"></div>
+          <div class="column-edge-4-y sup-column-dark"></div>
+          <div class="column-mid-3-y sup-column-dark"></div>
+
+          <!-- Platforms -->
+          <div class="platform-6x6-y bronze-dark"></div>
+        </div>
+        <div class="plane grid cube-y-10"></div>
+        <div class="plane grid cube-y-11"></div>
+
+        <div class="plane grid cube-x-1"></div>
+        <div class="plane grid cube-x-2"></div>
+        <div class="plane grid cube-x-3">
+          <!-- Supporting columns -->
+          <div class="column-edge-1-x sup-column-light"></div>
+          <div class="column-edge-4-x sup-column-light"></div>
+          <div class="column-mid-4-x sup-column-light"></div>
+
+          <!-- Platforms -->
+          <div class="platform-6x6-x bronze"></div>
+        </div>
+        <div class="plane grid cube-x-4">
+          <!-- Supporting columns -->
+          <div class="column-edge-1-x sup-column-dark"></div>
+          <div class="column-edge-4-x sup-column-inside"></div>
+          <div class="column-mid-4-x sup-column-inside"></div>
+        </div>
+        <div class="plane grid cube-x-5">
+          <!-- Supporting columns -->
+          <div class="column-mid-1-x sup-column-darker"></div>
+          <div class="column-mid-3-x sup-column-inside"></div>
+        </div>
+        <div class="plane grid cube-x-6"></div>
+        <div class="plane grid cube-x-7">
+          <!-- Supporting columns -->
+          <div class="column-mid-1-x sup-column-dark"></div>
+          <div class="column-mid-3-x sup-column-inside"></div>
+        </div>
+        <div class="plane grid cube-x-8">
+          <!-- Supporting columns -->
+          <div class="column-edge-2-x sup-column-darker"></div>
+          <div class="column-edge-3-x sup-column-inside"></div>
+          <div class="column-mid-2-x sup-column-inside"></div>
+        </div>
+        <div class="plane grid cube-x-9">
+          <!-- Supporting columns -->
+          <div class="column-edge-2-x sup-column-dark"></div>
+          <div class="column-edge-3-x sup-column-dark"></div>
+          <div class="column-mid-2-x sup-column-dark"></div>
+
+          <!-- Platforms -->
+          <div class="platform-6x6-x bronze-dark"></div>
+        </div>
+        <div class="plane grid cube-x-10"></div>
+        <div class="plane grid cube-x-11"></div>
+
+        <div class="plane grid cube-z-1"></div>
+        <div class="plane grid cube-z-2"></div>
+        <div class="plane grid cube-z-3"></div>
+        <div class="plane grid cube-z-4"></div>
+        <div class="plane grid cube-z-5"></div>
+        <div class="plane grid cube-z-6">
+          <!-- Ground -->
+          <div class="floor grass"></div>
+        </div>
+        <div class="plane grid cube-z-7"></div>
+        <div class="plane grid cube-z-8"></div>
+        <div class="plane grid cube-z-9"></div>
+        <div class="plane grid cube-z-10"></div>
+        <div class="plane grid cube-z-11"></div>
+
+        <div class="plane grid cube-o-1">
+          <!-- Stair columns -->
+          <div class="stair-column-1">
+            <div class="object object-side-d-1 lighter-marbel"></div>
+            <div class="object object-side-2 dark-marbel"></div>
+            <div class="object object-side-3 dark-marbel"></div>
+          </div>
+          <div class="stair-column-2">
+            <div class="object object-side-d-1 dark-marbel"></div>
+            <div class="object object-side-1 lighter-marbel"></div>
+            <div class="object object-side-4 lighter-marbel"></div>
+            <div class="object object-top-trig-3"></div>
+          </div>
+          <div class="stair-column-3">
+            <div class="object object-side-d-2 lighter-marbel"></div>
+            <div class="object object-side-1 lighter-marbel"></div>
+            <div class="object object-side-2 dark-marbel"></div>
+          </div>
+
+          <!-- Stairs -->
+          <div class="stair-1">
+            <div class="object object-side-1-lower lighter-marbel"></div>
+            <div class="object object-side-m-1-low lighter-marbel"></div>
+            <div class="object-half-a object-side-2-low dark-marbel"></div>
+            <div class="object-half-b object-side-2-lower dark-marbel"></div>
+            <div class="object-half-a object-side-4-low lighter-marbel"></div>
+            <div class="object-half-b object-side-4-lower lighter-marbel"></div>
+            <div class="object-half-a object-top-low-1 lightest-marbel"></div>
+            <div class="object-half-b object-top-lower-1 lightest-marbel"></div>
+          </div>
+          <div class="stair-2">
+            <div class="object object-side-1-lower lighter-marbel"></div>
+            <div class="object object-side-m-1-low lighter-marbel"></div>
+            <div class="object-half-a object-side-2-low dark-marbel"></div>
+            <div class="object-half-b object-side-2-lower dark-marbel"></div>
+            <div class="object-half-a object-side-4-low lighter-marbel"></div>
+            <div class="object-half-b object-side-4-lower lighter-marbel"></div>
+            <div class="object-half-a object-top-low-1 lightest-marbel"></div>
+            <div class="object-half-b object-top-lower-1 lightest-marbel"></div>
+          </div>
+        </div>
+        <div class="plane grid cube-o-2">
+          <!-- Stair columns -->
+          <div class="stair-column-1">
+            <div class="object object-side-d-1 lighter-marbel"></div>
+            <div class="object object-side-2 dark-marbel"></div>
+            <div class="object object-side-3 dark-marbel"></div>
+          </div>
+          <div class="stair-column-3">
+            <div class="object object-side-d-2 lighter-marbel"></div>
+            <div class="object object-side-1 lighter-marbel"></div>
+            <div class="object object-side-2 dark-marbel"></div>
+            <div class="object object-top-trig-4"></div>
+          </div>
+
+          <!-- Stairs -->
+          <div class="stair-3">
+            <div class="object object-side-1-lower dark-marbel"></div>
+            <div class="object object-side-m-1-low dark-marbel"></div>
+            <div class="object-half-a object-side-2-low dark-marbel"></div>
+            <div class="object-half-b object-side-2-lower dark-marbel"></div>
+            <div class="object-half-a object-side-4-low lighter-marbel"></div>
+            <div class="object-half-b object-side-4-lower lighter-marbel"></div>
+            <div class="object-half-a object-top-low-1 lightest-marbel"></div>
+            <div class="object-half-b object-top-lower-1 lightest-marbel"></div>
+          </div>
+          <div class="stair-4">
+            <div class="object object-side-1-lower dark-marbel"></div>
+            <div class="object object-side-m-1-low dark-marbel"></div>
+            <div class="object-half-a object-side-2-low dark-marbel"></div>
+            <div class="object-half-b object-side-2-lower dark-marbel"></div>
+            <div class="object-half-a object-side-4-low lighter-marbel"></div>
+            <div class="object-half-b object-side-4-lower lighter-marbel"></div>
+            <div class="object-half-a object-top-low-1 lightest-marbel"></div>
+            <div class="object-half-b object-top-lower-1 lightest-marbel"></div>
+          </div>
+        </div>
+        <div class="plane grid cube-o-3">
+          <!-- Stair columns -->
+          <div class="stair-column-1">
+            <div class="object object-side-d-1 lighter-marbel"></div>
+            <div class="object object-side-2 dark-marbel"></div>
+            <div class="object object-side-3 dark-marbel"></div>
+            <div class="object object-top-trig-1"></div>
+          </div>
+
+          <!-- Stairs -->
+          <div class="stair-5">
+            <div class="object object-side-1-lower dark-marbel"></div>
+            <div class="object object-side-m-1-low dark-marbel"></div>
+            <div class="object-half-a object-side-2-low lighter-marbel"></div>
+            <div class="object-half-b object-side-2-lower lighter-marbel"></div>
+            <div class="object-half-a object-side-4-low dark-marbel"></div>
+            <div class="object-half-b object-side-4-lower dark-marbel"></div>
+            <div class="object-half-a object-top-low-1 lightest-marbel"></div>
+            <div class="object-half-b object-top-lower-1 lightest-marbel"></div>
+          </div>
+          <div class="stair-6">
+            <div class="object object-side-1-lower dark-marbel"></div>
+            <div class="object object-side-m-1-low dark-marbel"></div>
+            <div class="object-half-a object-side-2-low lighter-marbel"></div>
+            <div class="object-half-b object-side-2-lower lighter-marbel"></div>
+            <div class="object-half-a object-side-4-low dark-marbel"></div>
+            <div class="object-half-b object-side-4-lower dark-marbel"></div>
+            <div class="object-half-a object-top-low-1 lightest-marbel"></div>
+            <div class="object-half-b object-top-lower-1 lightest-marbel"></div>
+          </div>
+        </div>
+        <div class="plane grid cube-o-4">
+          <!-- Stairs -->
+          <div class="stair-7">
+            <div class="object object-side-3-low dark-marbel"></div>
+            <div class="object object-side-1-lower dark-marbel"></div>
+            <div class="object object-side-m-1-low dark-marbel"></div>
+            <div class="object-half-a object-side-2-low lighter-marbel"></div>
+            <div class="object-half-b object-side-2-lower lighter-marbel"></div>
+            <div class="object-half-a object-side-4-low dark-marbel"></div>
+            <div class="object-half-b object-side-4-lower dark-marbel"></div>
+            <div class="object-half-a object-top-low-1 lightest-marbel"></div>
+            <div class="object-half-b object-top-lower-1 lightest-marbel"></div>
+          </div>
+
+          <!-- Floating glass platform -->
+          <div class="glass-platform-top"></div>
+          <div class="glass-platform-bottom"></div>
+          <div class="glass-platform-side-1"></div>
+          <div class="glass-platform-side-2"></div>
+          <div class="glass-platform-side-3"></div>
+          <div class="glass-platform-side-4"></div>
+        </div>
+        <div class="plane grid cube-o-5">
+          <div class="tree">
+            <div class="tree-bottom">
+              <div class="tree-side-1">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-2">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-3">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-4">
+                <div class="tree-side"></div>
+              </div>
+            </div>
+            <div class="tree-middle">
+              <div class="tree-side-1">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-2">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-3">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-4">
+                <div class="tree-side"></div>
+              </div>
+            </div>
+            <div class="tree-top">
+              <div class="tree-side-1">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-2">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-3">
+                <div class="tree-side"></div>
+              </div>
+              <div class="tree-side-4">
+                <div class="tree-side"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="plane grid cube-o-6"></div>
+        <div class="plane grid cube-o-7"></div>
+        <div class="plane grid cube-o-8"></div>
+        <div class="plane grid cube-o-9"></div>
+        <div class="plane grid cube-o-10"></div>
+        <div class="plane grid cube-o-11"></div>
+
+        <div class="plane grid ocean-cube-top">
+          <div class="ocean-top"></div>
+          <div class="ripple-col-edge-1 ripple"></div>
+          <div class="ripple-col-edge-2 ripple"></div>
+          <div class="ripple-col-edge-3 ripple"></div>
+          <div class="ripple-col-edge-4 ripple"></div>
+          <div class="ripple-col-mid-1 ripple"></div>
+          <div class="ripple-col-mid-2 ripple"></div>
+          <div class="ripple-col-mid-3 ripple"></div>
+          <div class="ripple-col-mid-4 ripple"></div>
+        </div>
+        <div class="plane grid ocean-cube-bottom">
+          <div class="ocean-bottom"></div>
+        </div>
+        <div class="plane grid ocean-cube-side-1">
+          <div class="ocean-plane"></div>
+        </div>
+        <div class="plane grid ocean-cube-side-2">
+          <div class="ocean-plane"></div>
+        </div>
+        <div class="plane grid ocean-cube-side-3">
+          <div class="ocean-plane"></div>
+        </div>
+        <div class="plane grid ocean-cube-side-4">
+          <div class="ocean-plane"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

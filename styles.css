@@ -1,0 +1,1044 @@
+/* CSS not optimised yet */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #333;
+  text-shadow: 1px 1px 2px #fffde4;
+  overflow: hidden;
+}
+
+input, label, .info {
+  position: relative;
+  margin-top: 10px;
+  z-index: 1;
+}
+
+.info {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  transition: transform background 2s;
+}
+
+/**************************************************/
+/*** Camera rotation triggered by radio buttons ***/
+/**************************************************/
+
+#view-default:checked ~ .container > .world-container {
+  transform: rotateX(54.7deg) rotateZ(45deg);
+}
+
+#view-default:checked ~ .container {
+  background: radial-gradient(farthest-corner at 0% 0%, #fffde4, #00288E 90%);
+}
+
+#view-90deg:checked ~ .container > .world-container {
+  transform: rotateX(54.7deg) rotateZ(135deg);
+}
+
+#view-90deg:checked ~ .container {
+  background: radial-gradient(farthest-corner at 50% 0%, #fffde4, #00288E 90%);
+}
+
+#view-180deg:checked ~ .container > .world-container {
+  transform: rotateX(54.7deg) rotateZ(225deg);
+}
+
+#view-180deg:checked ~ .container {
+  background: radial-gradient(farthest-corner at 100% 0%, #fffde4, #00288E 90%);
+}
+
+#view-270deg:checked ~ .container > .world-container {
+  transform: rotateX(54.7deg) rotateZ(315deg);
+}
+
+#view-270deg:checked ~ .container {
+  background: radial-gradient(farthest-corner at 50% 100%, #fffde4, #00288E 90%);
+}
+
+#toggle-grid:checked ~ .container > .world-container .plane {
+  border: 1px dashed #CCC;
+}
+
+/*********************************/
+/*** Cube container and planes ***/
+/*********************************/
+
+.world-container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  top: -10%;
+  transform-style: preserve-3d;
+  transition: all 1s;
+}
+
+.plane {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+/************************************/
+/*** Planes of the cube container ***/
+/************************************/
+
+/* x-z planes on the y-axis */
+
+.cube-y-1 {
+  transform: translateY(50%) rotateX(90deg);
+}
+
+.cube-y-2 {
+  transform: translateY(40%) rotateX(90deg);
+}
+
+.cube-y-3 {
+  transform: translateY(30%) rotateX(90deg);
+}
+
+.cube-y-4 {
+  transform: translateY(20%) rotateX(90deg);
+}
+
+.cube-y-5 {
+  transform: translateY(10%) rotateX(90deg);
+}
+
+.cube-y-6 {
+  transform: translateY(0%) rotateX(90deg);
+}
+
+.cube-y-7 {
+  transform: translateY(-10%) rotateX(90deg);
+}
+
+.cube-y-8 {
+  transform: translateY(-20%) rotateX(90deg);
+}
+
+.cube-y-9 {
+  transform: translateY(-30%) rotateX(90deg);
+}
+
+.cube-y-10 {
+  transform: translateY(-40%) rotateX(90deg);
+}
+
+.cube-y-11 {
+  transform: translateY(-50%) rotateX(90deg);
+}
+
+/* y-z planes on the x-axis, Z-rotation is used to create a consistent coordinate system */
+
+.cube-x-1 {
+  transform: translateX(-50%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-2 {
+  transform: translateX(-40%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-3 {
+  transform: translateX(-30%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-4 {
+  transform: translateX(-20%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-5 {
+  transform: translateX(-10%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-6 {
+  transform: translateX(0%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-7 {
+  transform: translateX(10%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-8 {
+  transform: translateX(20%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-9 {
+  transform: translateX(30%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-10 {
+  transform: translateX(40%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+.cube-x-11 {
+  transform: translateX(50%) rotateY(-90deg) rotateZ(-90deg);
+}
+
+/* x-y planes on the z-axis scaling and moving up the plane by 1px is a visual hack for avoid bleeding of x-z and y-z planes at insections */
+
+.cube-z-1 {
+  transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+}
+
+.cube-z-2 {
+  transform: rotateX(90deg) translateY(-40%) rotateX(-90deg);
+}
+
+.cube-z-3 {
+  transform: rotateX(90deg) translateY(-30%) rotateX(-90deg);
+}
+
+.cube-z-4 {
+  transform: rotateX(90deg) translateY(-20%) rotateX(-90deg);
+}
+
+.cube-z-5 {
+  transform: rotateX(90deg) translateY(-10%) rotateX(-90deg);
+}
+
+.cube-z-6 {
+  transform: rotateX(90deg) translateY(0%) rotateX(-90deg);
+}
+
+.cube-z-7 {
+  transform: rotateX(90deg) translateY(10%) rotateX(-90deg);
+}
+
+.cube-z-8 {
+  transform: rotateX(90deg) translateY(20%) rotateX(-90deg);
+}
+
+.cube-z-9 {
+  transform: rotateX(90deg) translateY(1px) rotateX(-90deg);
+}
+
+.cube-z-10 {
+  transform: rotateX(90deg) translateY(40%) rotateX(-90deg);
+}
+
+.cube-z-11 {
+  transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+}
+
+/* Above-ground object planes */
+
+.cube-o-1 {
+  transform: rotateX(90deg) translateY(0%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-2 {
+  transform: rotateX(90deg) translateY(10%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-3 {
+  transform: rotateX(90deg) translateY(20%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-4 {
+  transform: rotateX(90deg) translateY(30%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-5 {
+  transform: rotateX(90deg) translateY(40%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-6 {
+  transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-7 {
+  transform: rotateX(90deg) translateY(60%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-8 {
+  transform: rotateX(90deg) translateY(70%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-9 {
+  transform: rotateX(90deg) translateY(80%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-10 {
+  transform: rotateX(90deg) translateY(90%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.cube-o-11 {
+  transform: rotateX(90deg) translateY(100%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+/* Planes for ocean */
+
+.ocean-cube-top {
+  transform: rotateX(90deg) translateY(-10%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.ocean-cube-bottom {
+  transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+}
+
+.ocean-cube-side-1 {
+  transform: translateY(50%) rotateX(90deg) translateY(-60%);
+}
+
+.ocean-cube-side-2 {
+  transform: translateX(50%) rotateY(-90deg) translateX(-60%) rotateZ(-90deg);
+}
+
+.ocean-cube-side-3 {
+  transform: translateY(-50%) rotateX(90deg) translateY(-60%);
+}
+
+.ocean-cube-side-4 {
+  transform: translateX(-50%) rotateY(-90deg) translateX(-60%) rotateZ(-90deg);
+}
+
+/*******************/
+/*** Cube styles ***/
+/*******************/
+
+/* General styles */
+
+.grass {
+  background: #1B9;
+}
+
+.grass::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(to top right, rgba(255, 253, 228, 0.4), rgba(255, 253, 228, 0) 70%);
+}
+
+.water {
+  background: rgba(0, 206, 209, 0.5);
+}
+
+.bronze {
+  background: #CCA981;
+}
+
+.bronze-darker {
+  background: #A18469;
+}
+
+.bronze-dark {
+  background: #776052;
+}
+
+.bronze-inside {
+  background: #5A4939;
+}
+
+.sup-column-light {
+  background: linear-gradient(to top, rgba(204, 169, 129, 1) 25%, rgba(204, 169, 129, 0.4) 100%);
+}
+
+.sup-column-darker {
+  background: linear-gradient(to top, rgba(161, 132, 105, 1) 25%, rgba(161, 132, 105, 0.4) 100%);
+}
+
+.sup-column-dark {
+  background: linear-gradient(to top, rgba(119, 96, 82, 1) 25%, rgba(119, 96, 82, 0.4) 100%);
+}
+
+.sup-column-inside {
+  background: linear-gradient(to top, rgba(90, 73, 57, 1) 25%, rgba(90, 73, 57, 0.4) 100%);
+}
+
+.lightest-marbel {
+  background: white;
+}
+
+.lighter-marbel {
+  background: #EEE;
+}
+
+.light-marbel {
+  background: #DDD;
+}
+
+.darker-marbel {
+  background: #CCC;
+}
+
+.dark-marbel {
+  background: #AAA;
+}
+
+.inside-marbel {
+  background: #888;
+}
+
+/* Columns styles */
+
+.column-edge-1-x,
+.column-edge-1-y,
+.column-edge-2-x,
+.column-edge-4-y {
+  grid-column: 3;
+  grid-row: 2 / span 3;
+}
+
+.column-edge-2-y,
+.column-edge-3-x,
+.column-edge-3-y,
+.column-edge-4-x {
+  grid-column: 8;
+  grid-row: 2 / span 3;
+}
+
+.column-mid-1-y,
+.column-mid-2-x,
+.column-mid-3-y,
+.column-mid-4-x {
+  grid-column: 5 / span 2;
+  grid-row: 2 / span 3;
+}
+
+.column-mid-1-x,
+.column-mid-4-y {
+  grid-column: 3;
+  grid-row: 2 / span 3;
+}
+
+.column-mid-2-y,
+.column-mid-3-x {
+  grid-column: 8;
+  grid-row: 2 / span 3;
+}
+
+/* Ocean */
+
+.ocean-top {
+  background: rgba(0, 206, 209, 0.5);
+  grid-column: 1 / span 10;
+  grid-row: 1 / span 10;
+  transform: rotateX(90deg) translateY(-4%) rotateX(-90deg);
+}
+
+#toggle-animation:checked ~ .container > .world-container > div > .ocean-top {
+  animation-name: tide-top;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.ocean-bottom {
+  background: rgba(0, 36, 140, 1);
+  grid-column: 1 / span 10;
+  grid-row: 1 / span 10;
+}
+
+.ocean-plane {
+  grid-column: 1 / span 10;
+  grid-row: 7 / span 4;
+  background: linear-gradient(to top, rgba(0, 206, 209, 0.5), rgba(0, 36, 140, 1));
+  transform-origin: top;
+  transform: scaleY(0.9);
+}
+
+#toggle-animation:checked ~ .container > .world-container > div > .ocean-plane {
+  animation-name: tide-plane;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes tide-top {
+  from {
+    transform: rotateX(90deg) translateY(-4%) rotateX(-90deg);
+  }
+
+  to {
+    transform: rotateX(90deg) translateY(0px) rotateX(-90deg);
+  }
+}
+
+@keyframes tide-plane {
+  from {
+    transform: scaleY(0.9);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Ripples */
+
+.ripple {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transform: scale(1.6) translateZ(-16px);
+}
+
+.ripple-col-edge-1 {
+  grid-column: 8;
+  grid-row: 8;
+}
+
+.ripple-col-edge-2 {
+  grid-column: 8;
+  grid-row: 3;
+}
+
+.ripple-col-edge-3 {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.ripple-col-edge-4 {
+  grid-column: 3;
+  grid-row: 8;
+}
+
+.ripple-col-mid-1 {
+  grid-column: 5 / span 2;
+  grid-row: 8;
+}
+
+.ripple-col-mid-2 {
+  grid-column: 8;
+  grid-row: 5 / span 2;
+}
+
+.ripple-col-mid-3 {
+  grid-column: 5 / span 2;
+  grid-row: 3;
+}
+
+.ripple-col-mid-4 {
+  grid-column: 3;
+  grid-row: 5 / span 2;
+}
+
+#toggle-animation:checked ~ .container > .world-container > div > .ripple {
+  animation-name: ripples;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ripples {
+  from {
+    border: 1px solid rgba(255, 255, 255, 0);
+    transform: scale(1.6) translateZ(-16px);
+  }
+
+  to {
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    transform: scale(0.9) translateZ(0);
+  }
+}
+
+/* Floors */
+
+.cube-z-6 > .floor {
+  grid-column: 3 / span 6;
+  grid-row: 3 / span 6;
+}
+
+
+/* Objects */
+/* Platforms */
+
+.platform-6x6-y,
+.platform-6x6-x {
+  grid-column: 3 / span 6;
+  grid-row: 5;
+}
+
+/* Object sides */
+
+.object {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.object-half-a {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.object-half-b {
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+}
+
+.object-side-1 {
+  transform-origin: bottom;
+  transform: rotateX(-90deg);
+}
+
+.object-side-1-low {
+  transform-origin: bottom;
+  transform: rotateX(-90deg) translateY(20%);
+}
+
+.object-side-1-lower {
+  transform-origin: bottom;
+  transform: rotateX(-90deg) translateY(40%);
+}
+
+.object-side-2 {
+  transform-origin: right;
+  transform: rotateY(90deg);
+}
+
+.object-side-2-low {
+  transform-origin: right;
+  transform: rotateY(90deg) translateX(20%);
+}
+
+.object-side-2-lower {
+  transform-origin: right;
+  transform: rotateY(90deg) translateX(40%);
+}
+
+.object-side-3 {
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+.object-side-3-low {
+  transform-origin: top;
+  transform: rotateX(90deg) translateY(-20%);
+}
+
+.object-side-4 {
+  transform-origin: left;
+  transform: rotateY(-90deg);
+}
+
+.object-side-4-low {
+  transform-origin: left;
+  transform: rotateY(-90deg) translateX(-20%);
+}
+
+.object-side-4-lower {
+  transform-origin: left;
+  transform: rotateY(-90deg) translateX(-40%);
+}
+
+.object-side-d-1 {
+  transform-origin: top;
+  transform: translateY(50%) rotateX(90deg) rotateY(-135deg) scaleX(1.414);
+}
+
+.object-side-d-2 {
+  transform-origin: top;
+  transform: translateY(50%) rotateX(90deg) rotateY(135deg) scaleX(1.414);
+}
+
+.object-side-m-1 {
+  transform-origin: bottom;
+  transform: translateY(-50%) rotateX(-90deg);
+}
+
+.object-side-m-1-low {
+  transform-origin: bottom;
+  transform: translateY(-50%) rotateX(-90deg) translateY(20%);
+}
+
+.object-side-m-1-lower {
+  transform-origin: bottom;
+  transform: translateY(-50%) rotateX(-90deg) translateY(40%);
+}
+
+.object-side-m-2 {
+  transform-origin: right;
+  transform: translateX(-50%) rotateY(90deg);
+}
+
+.object-side-m-2-low {
+  transform-origin: right;
+  transform: translateX(-50%) rotateY(90deg) translateY(-20%);
+}
+
+.object-side-m-2-lower {
+  transform-origin: right;
+  transform: translateX(-50%) rotateY(90deg) translateY(-40%);
+}
+
+.object-top {
+  transform: rotateY(90deg) translateX(-100%) rotateY(90deg);
+}
+
+.object-top-low-1 {
+  transform: rotateY(90deg) translateX(-80%) rotateY(90deg);
+}
+
+.object-top-lower-1 {
+  transform: rotateY(90deg) translateX(-60%) rotateY(90deg);
+}
+
+.object-top-trig-1 {
+  transform: rotateX(90deg) translateY(100%) rotateX(-90deg);
+  border-top: 40px solid white;
+  border-left: 40px solid transparent;
+}
+
+.object-top-trig-3 {
+  transform: rotateX(90deg) translateY(100%) rotateX(-90deg);
+  border-left: 40px solid white;
+  border-top: 40px solid transparent;
+}
+
+.object-top-trig-4 {
+  transform: rotateX(90deg) translateY(100%) rotateX(-90deg);
+  border-bottom: 40px solid white;
+  border-left: 40px solid transparent;
+}
+
+/* Stairs */
+
+.stair-column-1 {
+  grid-column: 4;
+  grid-row: 7;
+  transform-style: preserve-3d;
+}
+
+.stair-column-2 {
+  grid-column: 7;
+  grid-row: 4;
+  transform-style: preserve-3d;
+}
+
+.stair-column-3 {
+  grid-column: 4;
+  grid-row: 4;
+  transform-style: preserve-3d;
+}
+
+.stair-1 {
+  grid-column: 7;
+  grid-row: 6;
+  transform: rotateX(90deg) translateY(-40%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+.stair-2 {
+  grid-column: 7;
+  grid-row: 5;
+  transform-style: preserve-3d;
+}
+
+.stair-3 {
+  grid-column: 6;
+  grid-row: 4;
+  transform: rotateX(90deg) translateY(-40%) rotateX(-90deg) rotateZ(-90deg);
+  transform-style: preserve-3d;
+}
+
+.stair-4 {
+  grid-column: 5;
+  grid-row: 4;
+  transform: rotateZ(-90deg);
+  transform-style: preserve-3d;
+}
+
+.stair-5 {
+  grid-column: 4;
+  grid-row: 5;
+  transform: rotateX(90deg) translateY(-40%) rotateX(-90deg) rotateZ(180deg);
+  transform-style: preserve-3d;
+}
+
+.stair-6 {
+  grid-column: 4;
+  grid-row: 6;
+  transform: rotateZ(180deg);
+  transform-style: preserve-3d;
+}
+
+.stair-7 {
+  grid-column: 5;
+  grid-row: 7;
+  transform: rotateX(90deg) translateY(-40%) rotateX(-90deg) rotateZ(90deg);
+  transform-style: preserve-3d;
+}
+
+/* Floating glass platform */
+
+.glass-platform-top {
+  grid-column: 6 / span 3;
+  grid-row: 6 / span 3;
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.3) 40%, rgba(17, 204, 238, 0.3));
+  transform: rotateX(90deg) translateY(16.6%) rotateX(-90deg);
+}
+
+#toggle-animation:checked ~ .container > .world-container > div > .glass-platform-top {
+  animation-name: glass-platform-top-float;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.glass-platform-bottom {
+  grid-column: 6 / span 3;
+  grid-row: 6 / span 3;
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.3), rgba(17, 204, 238, 0.3) 60%);
+  transform: rotateX(90deg) translateY(-16.6%) rotateX(-90deg);
+}
+
+#toggle-animation:checked ~ .container > .world-container > div > .glass-platform-bottom {
+  animation-name: glass-platform-bottom-float;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.glass-platform-side-1 {
+  grid-column: 6 / span 3;
+  grid-row: 8;
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.3) 20%, rgba(17, 204, 238, 0.3));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  transform: translateY(50%) rotateX(90deg) translateY(0%);
+}
+
+.glass-platform-side-2 {
+  grid-column: 8;
+  grid-row: 6 / span 3;
+  background: linear-gradient(to top right, rgba(17, 204, 238, 0.3), rgba(17, 204, 238, 0.4));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transform: translateX(50%) rotateY(90deg) translateX(0%);
+}
+
+.glass-platform-side-3 {
+  grid-column: 6 / span 3;
+  grid-row: 5;
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.3), rgba(17, 204, 238, 0.3));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  transform: translateY(50%) rotateX(90deg) translateY(0%);
+}
+
+.glass-platform-side-4 {
+  grid-column: 5;
+  grid-row: 6 / span 3;
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.3) 20%, rgba(17, 204, 238, 0.3));
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transform: translateX(50%) rotateY(90deg) translateX(0%);
+}
+
+#toggle-animation:checked ~ .container > .world-container > div > .glass-platform-side-1,
+#toggle-animation:checked ~ .container > .world-container > div > .glass-platform-side-3 {
+  animation-name: glass-platform-side-float-a;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+#toggle-animation:checked ~ .container > .world-container > div > .glass-platform-side-2,
+#toggle-animation:checked ~ .container > .world-container > div > .glass-platform-side-4 {
+  animation-name: glass-platform-side-float-b;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glass-platform-top-float {
+  from {
+    transform: rotateX(90deg) translateY(16.6%) rotateX(-90deg);
+  }
+
+  to {
+    transform: rotateX(90deg) translateY(33.2%) rotateX(-90deg);
+  }
+}
+
+@keyframes glass-platform-bottom-float {
+  from {
+    transform: rotateX(90deg) translateY(-16.6%) rotateX(-90deg);
+  }
+
+  to {
+    transform: rotateX(90deg) translateY(0%) rotateX(-90deg);
+  }
+}
+
+@keyframes glass-platform-side-float-a {
+  from {
+    transform: translateY(50%) rotateX(90deg) translateY(0%);
+  }
+
+  to {
+    transform: translateY(50%) rotateX(90deg) translateY(50%);
+  }
+}
+
+@keyframes glass-platform-side-float-b {
+  from {
+    transform: translateX(50%) rotateY(90deg) translateX(0%);
+  }
+
+  to {
+    transform: translateX(50%) rotateY(90deg) translateX(-50%);
+  }
+}
+
+/* Tree */
+
+.tree {
+  height: 100%;
+  width: 100%;
+  grid-column: 7;
+  grid-row: 7;
+  transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+  transform-style: preserve-3d;
+}
+
+#toggle-animation:checked ~ .container > .world-container > div > .tree {
+  animation-name: tree-float;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.tree-bottom {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.tree-middle {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: rotateX(90deg) translateY(40%) rotateX(-90deg) scale(0.8);
+  transform-style: preserve-3d;
+}
+
+.tree-top {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: rotateX(90deg) translateY(80%) rotateX(-90deg) scale(0.6);
+  transform-style: preserve-3d;
+}
+
+.tree-side-1 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.tree-side-2 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: rotateZ(-90deg);
+  transform-style: preserve-3d;
+}
+
+.tree-side-3 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: rotateZ(180deg);
+  transform-style: preserve-3d;
+}
+
+.tree-side-4 {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: rotateZ(90deg);
+  transform-style: preserve-3d;
+}
+
+.tree-side {
+  height: 100%;
+  width: 100%;
+  transform-origin: bottom;
+  transform: translateY(-7.8%) rotateX(-64.9deg);
+  overflow: hidden;
+}
+
+.tree-side::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateY(50%) rotate(45deg) skew(22deg, 22deg);
+}
+
+.tree-bottom .tree-side::after {
+  background: linear-gradient(to bottom right, rgba(37, 0, 62, 0.9), rgba(37, 0, 62, 0.8), 70%, white);
+}
+
+.tree-middle .tree-side::after {
+  background: linear-gradient(to bottom right, rgba(0, 72, 123, 0.8), rgba(0, 72, 123, 0.9), 70%, white);
+}
+
+.tree-top .tree-side::after {
+  background: linear-gradient(to bottom right, white, rgba(17, 204, 238, 0.8) 40%, rgba(17, 204, 238, 0.8));
+}
+
+@keyframes tree-float {
+  from {
+    transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+  }
+
+  to {
+    transform: rotateX(90deg) translateY(0%) rotateX(-90deg);
+  }
+}
