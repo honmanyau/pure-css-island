@@ -345,11 +345,9 @@ label, .info {
   transform: translateX(-50%) rotateY(-90deg) translateX(-60%) rotateZ(-90deg);
 }
 
-/*******************/
-/*** Cube styles ***/
-/*******************/
-
-/* General styles */
+/***************/
+/*** Colours ***/
+/***************/
 
 .grass {
   background: #1B9;
@@ -423,7 +421,11 @@ label, .info {
   background: #888;
 }
 
-/* Columns styles */
+/***************/
+/*** Objects ***/
+/***************/
+
+/* Supporting columns */
 
 .column-edge-1-x,
 .column-edge-1-y,
@@ -595,8 +597,7 @@ label, .info {
 }
 
 
-/* Objects */
-/* Platforms */
+/* Platform/Ground */
 
 .platform-6x6-y,
 .platform-6x6-x {
