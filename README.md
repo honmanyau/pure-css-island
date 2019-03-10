@@ -1,8 +1,12 @@
+# Pure CSS Island
+
+> A 3D island with animated parts and camera rotation.
+
 A demo can be found [here](https://codepen.io/honmanyau/full/vpzqpr) on CodePen. It was picked on 2017.01.16!
 
 Tested with Chrome 63 and Firefox 57. No support for IE. Please toggle animation off with the checkbox above if you see glitches (for example, Safari 11.0.2 and Safari 11 on iOS).
 
-A 3D island with animated parts and camera rotation.
+## Description
 
 The 3D effect is achieved using multiple CSS grids, a bunch of which are transformed to be evenly spaced, and parallel, to each other on the x-y, x-z and y-z planes, which ultimately forms a cube.
 
